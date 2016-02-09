@@ -54,6 +54,7 @@ MAINTAINER = "support@influxdb.com"
 VENDOR = "InfluxData"
 DESCRIPTION = "Distributed time-series database."
 
+go_vet_command = ["go", "tool", "vet", "-composites=true", "./"]
 prereqs = [ 'git', 'go' ]
 optional_prereqs = [ 'gvm', 'fpm', 'rpmbuild' ]
 
@@ -502,7 +503,6 @@ def go_get(branch, platform=None, update=False, no_stash=False):
 
         print "Moving back to branch '{}'...".format(branch)
         run("git checkout {}".format(branch))
-
     return True
 
 def generate_md5_from_file(path):
