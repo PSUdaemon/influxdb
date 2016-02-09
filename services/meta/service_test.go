@@ -883,7 +883,7 @@ func TestMetaService_CommandAgainstNonLeader(t *testing.T) {
 
 	cfgs := make([]*meta.Config, 3)
 	srvs := make([]*testService, 3)
-	for i, _ := range cfgs {
+	for i := range cfgs {
 		c := newConfig()
 
 		cfgs[i] = c
@@ -926,7 +926,7 @@ func TestMetaService_FailureAndRestartCluster(t *testing.T) {
 
 	cfgs := make([]*meta.Config, 3)
 	srvs := make([]*testService, 3)
-	for i, _ := range cfgs {
+	for i := range cfgs {
 		c := newConfig()
 
 		cfgs[i] = c
@@ -1208,18 +1208,18 @@ func TestMetaService_PersistClusterIDAfterRestart(t *testing.T) {
 	}
 	defer c.Close()
 
-	id_after := c.ClusterID()
-	if id_after == 0 {
+	idAfter := c.ClusterID()
+	if idAfter == 0 {
 		t.Fatal("cluster ID can't be zero")
-	} else if id_after != id {
-		t.Fatalf("cluster id not the same: %d, %d", id_after, id)
+	} else if idAfter != id {
+		t.Fatalf("cluster id not the same: %d, %d", idAfter, id)
 	}
 }
 
 func TestMetaService_Ping(t *testing.T) {
 	cfgs := make([]*meta.Config, 3)
 	srvs := make([]*testService, 3)
-	for i, _ := range cfgs {
+	for i := range cfgs {
 		c := newConfig()
 
 		cfgs[i] = c
